@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement, property } from 'lit-element';
 import { MyList } from './components/myList';
 
-import './components/styles.scss'
 
 class App extends LitElement {
     render() {

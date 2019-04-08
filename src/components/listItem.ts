@@ -1,6 +1,7 @@
 import { LitElement, html, customElement, property, css } from "lit-element";
 import "@polymer/paper-card/paper-card.js";
 import "@polymer/paper-button/paper-button.js";
+import '@polymer/iron-image/iron-image.js';
 
 
 
@@ -14,8 +15,25 @@ export class ListItem extends LitElement {
 
   static get styles(){
     return  css `
+    .flex {
+      display: -webkit-flex; 
+      -webkit-flex-wrap: wrap; 
+      display: flex;   
+      flex-wrap: wrap;
+    }
       div {
         padding: 10px;
+      }
+      .images {
+        max-width: 600px;
+      }
+      iron-image {
+        width: 400px;
+        height: 400px;
+        background-color: lightgray;
+      }
+      .flex {
+        display: flex;
       }
     `;
   }
@@ -24,15 +42,11 @@ export class ListItem extends LitElement {
   render() {
     return html`
       <div>
-          <div>
-          ${this.data.map((item:any, index: any) => html `
-            <div class="card">
-              <h2>${index+1}. ${item.title}</h2>
-              <h5>Title description, Sep 2, 2017</h5>
-              <div class="fakeimg" style="height:150px;"><img src="${item.thumbnailUrl}"></div>
-              <p>Some text..</p>
+          <div class="flex">
+            <div class="images">
+            <h4>${this.data.title}</h4>
+              <iron-image sizing="contain" fade preload src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></iron-image>
             </div>
-          `)}
           </div>
       </div>
     `;

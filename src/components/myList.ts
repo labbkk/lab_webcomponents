@@ -2,7 +2,7 @@ import { LitElement, html, css, customElement, property } from "lit-element";
 
 import axios from "axios";
 
-import './listItem';
+//import './listItem';
 
 
 
@@ -19,23 +19,42 @@ export class MyList extends LitElement {
       text-align: center;
       font-weight: bold;
     }
+    .flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
   `;
 
   constructor() {
     super();
 
-    axios.get(this.api_url).then(resp => {
-      this.data = resp.data;
-      console.log(resp.data)
+    this.fetchData();
+
+    import('./listItem').then((listItem) => {
+      console.log("listItem loaded ", listItem);
+    }).catch((reason) => {
+      console.log("listItem failed to load", reason);
     });
   }
+
+  async fetchData(){
+    return await axios.get(this.api_url).then(resp => {
+      this.data = resp.data;
+    });
+  }
+
+
 
   render() {
     
     return html`
       <div class="header">Web Components By ${this.name}</div> 
       <h2>Github Api Repository</h2>
-      <list-item .data=${this.data}></list-item>
+      <div class="flex">
+      </div>
+      ${this.data.map((item: any) => html`
+        <list-item .data=${item}></list-item>
+      `)}
     `;
   }
 }

@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
-      "target": "es2017",
-      "module": "es2015",
+      "target": "es2018",
+      "module": "esnext",
+      "jsx": "preserve",
       "moduleResolution": "node",
       "lib": ["esnext.array", "esnext", "es2017", "dom"],
       "declaration": true,
@@ -15,7 +16,7 @@
       "noFallthroughCasesInSwitch": true,
       "noImplicitAny": true,
       "noImplicitThis": true,
-      "outDir": "./test",
+      //"outDir": "./",
       "skipLibCheck": true,
       "experimentalDecorators": true
     },

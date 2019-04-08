@@ -15,7 +15,7 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-        }
+        },
     },
     entry: _source + '/app.js',
     devtool: "inline-source-map",
@@ -28,7 +28,7 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.(ts|tsx)?$/,
+                test: /\.ts$/,
                 loader: "ts-loader"
             },
             {
@@ -99,6 +99,7 @@ module.exports = {
             filename: "styles/style.css"
         }),
     ],
+
     devServer: {
         compress: true,
         port: 8080,

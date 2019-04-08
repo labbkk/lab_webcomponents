@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@polymer/iron-flex-layout": "^3.0.1",
+    "@polymer/iron-image": "^3.0.1",
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-card": "^3.0.1",
     "@webcomponents/webcomponentsjs": "^2.2.7",
@@ -25,6 +26,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "path": "^0.12.7",
+    "plastic-image": "^3.0.2",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "ts-loader": "^5.3.3",
@@ -33,5 +35,8 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "@power-elements/lazy-image": "^2.1.1"
   }
 }
