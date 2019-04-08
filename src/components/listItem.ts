@@ -8,6 +8,7 @@ import '@polymer/iron-image/iron-image.js';
 @customElement("list-item")
 export class ListItem extends LitElement {
   @property({type: Object}) data: any;
+  @property({type: Object}) index: any;
 
   constructor() {
     super();
@@ -44,7 +45,7 @@ export class ListItem extends LitElement {
       <div>
           <div class="flex">
             <div class="images">
-            <h4>${this.data.title}</h4>
+            <h4>${this.index}, ${this.data.title}</h4>
               <iron-image sizing="contain" fade preload src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></iron-image>
             </div>
           </div>

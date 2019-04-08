@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Polyfills only needed for Firefox and Edge. -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+	<title>Lit Element</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="Put your description here.">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Works only on browsers that support Javascript modules like
+       Chrome, Safari, Firefox 60, Edge 17 -->
+  <script type="module">
+    import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+    import { repeat } from 'https://unpkg.com/lit-html@latest/lib/repeat.js?module';
+
+    class ListJawn extends LitElement {
+
+      static get properties() {
+        return {
+          collection: Array
+        }
+      }
+
+      constructor() {
+        super();
+        var items = []
+        for(var i=1; i<=100; i++){
+          items[i] = { color: 'yellow', name: 'Saturn', order: 2, target: '#Saturn' };
+        }
+        console.log(items)
+        this.collection = items;
+
+      }
+
+      render() {
+
+        return html`
+        <div class="container">
+              ${this.collection.map((item, index) => html`
+    			<div class="row">
+    				<img src="https://www.pic.com.kw/slider2.png" alt="my images" title="my images" />
+    				<h4>${index} : ${item.name}</h4>
+    			</div>
+        </div>
+		`
+              )}
+    `
+      }
+    }
+    customElements.define('my-list', ListJawn);
+  </script>
+  <my-list></my-list>
+</body>
+</html>

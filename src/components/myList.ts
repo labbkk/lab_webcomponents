@@ -52,8 +52,9 @@ export class MyList extends LitElement {
       <h2>Github Api Repository</h2>
       <div class="flex">
       </div>
-      ${this.data.map((item: any) => html`
-        <list-item .data=${item}></list-item>
+      ${this.data.map((item, index: any) => html`
+     
+        <list-item .data=${item} .index=${index}></list-item>
       `)}
     `;
   }
