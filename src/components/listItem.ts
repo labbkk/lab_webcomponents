@@ -8,7 +8,7 @@ import '@polymer/iron-image/iron-image.js';
 @customElement("list-item")
 export class ListItem extends LitElement {
   @property({type: Object}) data: any;
-  @property({type: Object}) index: any;
+  @property() index: any;
 
   constructor() {
     super();
